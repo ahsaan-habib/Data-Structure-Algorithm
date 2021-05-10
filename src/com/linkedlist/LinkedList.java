@@ -155,6 +155,58 @@ public class LinkedList {
         return targetNode.value;
     }
 
+    public void printMiddle(){
+        if (isEmpty())
+            throw new IllegalStateException();
+
+        var targetNode = first;
+        var secondaryNode = first;
+
+        while (secondaryNode != last && secondaryNode.next != last){
+            targetNode = targetNode.next;
+            secondaryNode = secondaryNode.next.next;
+        }
+
+        if(secondaryNode == last)
+            System.out.println("Middle: " + targetNode.value);
+
+        else
+            System.out.println("Middles: " + targetNode.value +" "+ targetNode.next.value);
+
+    }
+
+    public boolean hasLoop() {
+        var slow = first;
+        var fast = first;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast)
+                return true;
+        }
+
+        return false;
+    }
+
+    public static LinkedList createWithLoop() {
+        var list = new LinkedList();
+        list.addLast(10);
+        list.addLast(20);
+        list.addLast(30);
+
+        // Get a reference to 30
+        var node = list.last;
+
+        list.addLast(40);
+        list.addLast(50);
+
+        // Create the loop
+        list.last.next = node;
+
+        return list;
+    }
 
 
 

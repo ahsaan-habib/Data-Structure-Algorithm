@@ -9,12 +9,14 @@ public class Main {
         list.addLast(35);
         list.addLast(10);
         list.addLast(20);
-        list.addLast(30);
+//        list.addLast(30);
 //        list.removeFirst();
 //        list.removeLast();
         System.out.println("size: " + list.size());
         var array = list.toArray();
         System.out.println(Arrays.toString(array));
+
+        list.printMiddle();
 
         list.reverse();
         var array2 = list.toArray();
@@ -28,6 +30,9 @@ public class Main {
 
 //        System.out.println(list.indexOf(35));
 //        System.out.println(list.contains(32));
+
+        var list2 = LinkedList.createWithLoop();
+        System.out.println("HasLoop : " + list2.hasLoop());
 
     }
 
