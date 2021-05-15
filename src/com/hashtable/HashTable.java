@@ -4,6 +4,16 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class HashTable {
+    private static class Entry {
+        public int key;
+        public String value;
+
+        public Entry(int key, String value){
+            this.key = key;
+            this.value = value;
+        }
+    }
+
     private final LinkedList<Entry>[] items = new LinkedList[10];
 
     public void put(int key, String value){
@@ -56,5 +66,5 @@ public class HashTable {
     private int hash(int key, int tableSize){
         return key % tableSize;
     }
-
 }
+
